@@ -2,19 +2,16 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Movies',
+  name: 'SingleShow',
   props: {
-    movies: []
+    key: Number,
+    showdata: Object
   }
 })
 </script>
 
 <template>
-  <div>
-    <ul>
-      <li v-for="m in movies" :key="m.id">{{ m.name }}</li>
-    </ul>
-  </div>
+  <div class="singleShow">{{ showdata.name }}</div>
 </template>
 
 <style scoped></style>

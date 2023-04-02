@@ -1,28 +1,28 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Movies from './components/Movies.vue'
+import Shows from './components/Shows.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Movies
+    Shows
   },
   data() {
     return {
-      movies: []
+      shows: []
     }
   },
   async created() {
     const response = await fetch('https://api.tvmaze.com/shows')
     const data = await response.json()
-    this.movies = data
+    this.shows = data
     console.log(data)
   }
 })
 </script>
 
 <template>
-  <Movies :movies="movies" />
+  <Shows :shows="shows" />
 </template>
 
 <style scoped></style>
