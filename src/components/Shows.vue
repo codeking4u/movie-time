@@ -9,6 +9,17 @@ export default defineComponent({
   },
   components: {
     SingleShow
+  },
+  data() {
+    return {
+      shows: []
+    }
+  },
+  async created() {
+    const response = await fetch('https://api.tvmaze.com/shows')
+    const data = await response.json()
+    this.shows = data
+    console.log(data)
   }
 })
 </script>

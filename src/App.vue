@@ -1,28 +1,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Shows from './components/Shows.vue'
+import Header from './components/common/Header.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Shows
-  },
-  data() {
-    return {
-      shows: []
-    }
-  },
-  async created() {
-    const response = await fetch('https://api.tvmaze.com/shows')
-    const data = await response.json()
-    this.shows = data
-    console.log(data)
+    Header
   }
 })
 </script>
 
 <template>
-  <Shows :shows="shows" />
+  <Header />
+  <router-view />
 </template>
 
 <style scoped></style>
