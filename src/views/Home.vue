@@ -1,20 +1,51 @@
 <template>
   <Search />
-  <div>Upcoming 3</div>
-  <div>Random 3</div>
+  <Shows :updatedShows="updatedShows" />
+  <Shows :updatedShows="randomShows" />
   <div>Favorites</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import Search from '../components/common/Search.vue'
+import Shows from '../components/Shows.vue'
+
+import { fetchShows } from '../services/ShowService'
+import type { TvShow } from '../types/TvShow'
 
 export default defineComponent({
-  setup() {
-    return {}
-  },
   components: {
-    Search
+    Search,
+    Shows
+  },
+  setup() {
+    //const latestShows = ref<TvShow[]>([])
+    const allShows = ref([])
+    const updatedShows = ref([])
+    const randomShows = ref([])
+    const SHOW_COUNT = 3
+
+    async function fetchTvShows() {
+      try {
+        const shows = await fetchShows()
+        allShows.value = shows
+
+        updatedShows.value = allShows.value
+          .sort((a: TvShow, b: TvShow) => b.updated - a.updated)
+          .slice(0, SHOW_COUNT)
+
+        const max = allShows.value.length - SHOW_COUNT
+        const randomIndex = Math.floor(Math.random() * (max - 0) + 0)
+        randomShows.value = allShows.value.slice(randomIndex, randomIndex + SHOW_COUNT)
+
+        console.log(updatedShows.value)
+      } catch (error) {
+        console.log(`Error: ${error}`)
+      }
+    }
+
+    fetchTvShows()
+    return { updatedShows, allShows, randomShows }
   }
 })
 </script>
