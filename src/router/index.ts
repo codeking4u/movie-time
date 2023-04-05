@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Search from '../views/Search.vue'
-import Show from '../views/Show.vue'
+import ShowDetail from '../views/ShowDetail.vue'
 
 const routes = [
   {
@@ -15,9 +15,10 @@ const routes = [
     component: Search
   },
   {
-    path: '/show',
-    name: 'Show',
-    component: Show
+    path: '/show/:id',
+    name: 'ShowDetail',
+    component: ShowDetail,
+    props: true
   }
 ]
 const router = createRouter({

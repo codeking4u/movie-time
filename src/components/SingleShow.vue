@@ -2,36 +2,48 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { TvShow } from '@/types/TvShow'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'SingleShow',
   props: {
-    key: Number,
     showdata: {
-      type: Object as PropType<TvShow>,
-      required: true
+      type: Object as PropType<TvShow>
+    }
+  },
+  setup(props) {
+    const router = useRouter()
+
+    function redirectToSingleShow() {
+      router.push({ path: `/show/${props.showdata?.id}` })
+    }
+
+    return {
+      redirectToSingleShow
     }
   }
 })
 </script>
 
 <template>
-  <div class="showContainer flex">
-    <div class="showImg flex flex-jc-c">
-      <img class="showImg__pic" :src="showdata.image.medium" alt="" />
-      <div class="showImg__icons flex flex-jc-sb">
-        <div class="showImg__icon flex flex-jc-c flex-ai-c">
-          <i class="material-icons showImg__icon--star">star_rate</i>
-          <span class="showImg__icon--value">{{ showdata.rating.average }}</span>
+  <div v-if="showdata">
+    <div class="showContainer flex" @click="redirectToSingleShow">
+      <div class="showImg flex flex-jc-c">
+        <img class="showImg__pic" :src="showdata.image.medium" alt="" />
+        <div class="showImg__icons flex flex-jc-sb">
+          <div class="showImg__icon flex flex-jc-c flex-ai-c">
+            <i class="material-icons showImg__icon--star">star_rate</i>
+            <span class="showImg__icon--value">{{ showdata.rating.average }}</span>
+          </div>
+          <button class="showImg__icon">
+            <i class="material-icons showImg__icon--heart">favorite</i>
+          </button>
         </div>
-        <button class="showImg__icon">
-          <i class="material-icons showImg__icon--heart">favorite</i>
-        </button>
       </div>
-    </div>
-    <div class="showDetails">
-      <h2 class="showDetails__title">{{ showdata.name }}</h2>
-      <p class="showDetails__text" v-html="showdata.summary"></p>
+      <div class="showDetails">
+        <h2 class="showDetails__title">{{ showdata.name }}</h2>
+        <p class="showDetails__text" v-html="showdata.summary"></p>
+      </div>
     </div>
   </div>
 </template>
