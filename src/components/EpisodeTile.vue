@@ -62,47 +62,10 @@ h3 {
       max-height: 210px;
       border-radius: 5px;
     }
-
-    &__icons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 5px 8px;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    &__icon {
-      font-size: 0.7rem;
-      color: #fff;
-      background-color: transparent;
-      border: none;
-
-      &--star {
-        //margin-right: auto;
-      }
-
-      &--value {
-        margin-top: 3px;
-        padding-left: 3px;
-      }
-      &--heart {
-        opacity: 0.4;
-
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-    }
   }
   .episodeDetails {
     padding: 0 1rem;
 
-    &__title {
-      margin-top: 0;
-    }
-
-    // Text styles
     &__text {
       margin-bottom: 0;
       display: -webkit-box;
