@@ -19,12 +19,20 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="shows">
-    <SingleShow v-for="m in updatedShows" :key="m.id" :showdata="m" />
+  <div class="shows-container">
+    <h2>
+      <slot name="title"></slot>
+    </h2>
+    <div class="shows">
+      <SingleShow v-for="m in updatedShows" :key="m.id" :showdata="m" />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+.shows-container {
+  margin: 50px 0;
+}
 .shows {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -1,7 +1,9 @@
 <template>
   <Search />
-  <Shows :updatedShows="updatedShows" />
-  <Shows :updatedShows="randomShows" />
+  <Shows :updatedShows="updatedShows"
+    ><template v-slot:title> New Episodes Coming Soon In </template></Shows
+  >
+  <Shows :updatedShows="randomShows"><template v-slot:title> Random 3 Films </template></Shows>
   <div>Favorites</div>
 </template>
 
