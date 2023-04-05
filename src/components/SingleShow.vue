@@ -16,12 +16,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="showContainer">
-    <div class="showImg">
+  <div class="showContainer flex">
+    <div class="showImg flex flex-jc-c">
       <img class="showImg__pic" :src="showdata.image.medium" alt="" />
-      <div class="showImg__icons">
-        <button class="showImg__icon showImg__icon--star">
-          <i class="material-icons">star_rate</i> {{ showdata.rating.average }}
+      <div class="showImg__icons flex flex-jc-sb">
+        <button class="showImg__icon flex flex-jc-c flex-ai-c">
+          <i class="material-icons showImg__icon--star">star_rate</i>
+          <span class="showImg__icon--value">{{ showdata.rating.average }}</span>
         </button>
         <button class="showImg__icon showImg__icon--heart">
           <i class="material-icons">favorite</i>
@@ -36,22 +37,13 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
-$primaryColor: #333;
-// Variables for responsiveness
-$breakpoint-small: 576px;
-$breakpoint-medium: 768px;
-$breakpoint-large: 992px;
 .showContainer {
-  display: flex;
-  flex-direction: row;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 1rem;
   font-size: 0.8rem;
   .showImg {
     position: relative;
-    display: flex;
-    justify-content: center;
     align-items: flex-end;
 
     &__pic {
@@ -65,8 +57,6 @@ $breakpoint-large: 992px;
 
     &__icons {
       position: absolute;
-      display: flex;
-      justify-content: space-between;
       bottom: 0;
       left: 0;
       right: 0;
@@ -75,12 +65,10 @@ $breakpoint-large: 992px;
     }
 
     &__icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 0.7rem;
+      color: #fff;
       background-color: transparent;
       border: none;
-      color: #fff;
       cursor: pointer;
 
       &:hover {
@@ -93,7 +81,12 @@ $breakpoint-large: 992px;
       }
 
       &--star {
-        margin-right: auto;
+        //margin-right: auto;
+      }
+
+      &--value {
+        margin-top: 3px;
+        padding-left: 3px;
       }
     }
   }
@@ -108,29 +101,10 @@ $breakpoint-large: 992px;
     &__text {
       margin-bottom: 0;
       display: -webkit-box;
-      /* max-width: 200px; */
       -webkit-line-clamp: 9;
       -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1rem;
-    }
-
-    @media screen and (min-width: $breakpoint-medium) {
-      width: 55%;
-      //padding: 1rem 2rem;
-    }
-
-    @media screen and (max-width: $breakpoint-small) {
-      flex-direction: column;
-      align-items: stretch;
-
-      &__image-container {
-        align-items: stretch;
-      }
-
-      &__content {
-        padding: 1rem;
-      }
     }
   }
 }
