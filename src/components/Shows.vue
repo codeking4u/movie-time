@@ -24,7 +24,7 @@ export default defineComponent({
       <slot name="title"></slot>
     </h2>
     <div class="shows">
-      <SingleShow v-for="m in updatedShows" :key="m.id" :showdata="m" />
+      <SingleShow v-for="show in updatedShows" :key="show.id" :showdata="show" />
     </div>
   </div>
 </template>

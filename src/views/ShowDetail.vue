@@ -10,6 +10,7 @@
     </div>
 
     <InfoPanel :showdata="showdata" />
+    <EpisodeList :id="id" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import type { TvShow } from '@/types/TvShow'
 import SingleShow from '@/components/SingleShow.vue'
 import ShowInfo from '@/components/ShowInfo.vue'
 import InfoPanel from '@/components/InfoPanel.vue'
+import EpisodeList from '@/components/EpisodeList.vue'
 
 export default defineComponent({
   name: 'ShowDetail',
@@ -29,7 +31,7 @@ export default defineComponent({
       required: true
     }
   },
-  components: { SingleShow, ShowInfo, InfoPanel },
+  components: { SingleShow, ShowInfo, InfoPanel, EpisodeList },
   setup(props) {
     const showdata = ref<TvShow>()
     const showdataLoaded = computed(() => !!showdata.value)
