@@ -26,13 +26,10 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .shows {
-  /* gap: 1.5rem;
-  display: flex;
-  margin: 2rem 0; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   align-items: center;
-  grid-row-gap: 15px;
+  grid-gap: 20px;
 }
 </style>

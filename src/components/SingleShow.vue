@@ -20,12 +20,12 @@ export default defineComponent({
     <div class="showImg flex flex-jc-c">
       <img class="showImg__pic" :src="showdata.image.medium" alt="" />
       <div class="showImg__icons flex flex-jc-sb">
-        <button class="showImg__icon flex flex-jc-c flex-ai-c">
+        <div class="showImg__icon flex flex-jc-c flex-ai-c">
           <i class="material-icons showImg__icon--star">star_rate</i>
           <span class="showImg__icon--value">{{ showdata.rating.average }}</span>
-        </button>
-        <button class="showImg__icon showImg__icon--heart">
-          <i class="material-icons">favorite</i>
+        </div>
+        <button class="showImg__icon">
+          <i class="material-icons showImg__icon--heart">favorite</i>
         </button>
       </div>
     </div>
@@ -60,7 +60,7 @@ export default defineComponent({
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 0.5rem;
+      padding: 5px 8px;
       background-color: rgba(0, 0, 0, 0.5);
     }
 
@@ -69,16 +69,6 @@ export default defineComponent({
       color: #fff;
       background-color: transparent;
       border: none;
-      cursor: pointer;
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-      }
 
       &--star {
         //margin-right: auto;
@@ -87,6 +77,13 @@ export default defineComponent({
       &--value {
         margin-top: 3px;
         padding-left: 3px;
+      }
+      &--heart {
+        opacity: 0.4;
+
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
   }
@@ -101,7 +98,7 @@ export default defineComponent({
     &__text {
       margin-bottom: 0;
       display: -webkit-box;
-      -webkit-line-clamp: 9;
+      -webkit-line-clamp: 10;
       -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1rem;
