@@ -8,15 +8,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-
-//import { TvShow } from '../types/TvShow'
+import type { PropType } from 'vue'
+import type { TvShow } from '../types/TvShow'
 
 export default defineComponent({
   name: 'Show',
   props: {
     updatedShows: {
-      //type: Array as PropType<TvShow[]>,
-      type: Array,
+      type: Array as PropType<TvShow[]>,
       required: true
     }
   },
