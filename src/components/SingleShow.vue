@@ -1,25 +1,44 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import type { PropType } from 'vue'
 import type { TvShow } from '@/types/TvShow'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'SingleShow',
   props: {
     showdata: {
-      type: Object as PropType<TvShow>
+      type: Object as PropType<TvShow>,
+      default: () => ({})
     }
   },
   setup(props) {
     const router = useRouter()
+    const store = useStore()
+
+    function toggleFavorite() {
+      const showId = props.showdata.id
+      if (store.getters.isFavorite(showId)) {
+        store.commit('removeFromFavorites', showId)
+      } else {
+        store.commit('addToFavorites', showId)
+      }
+    }
+
+    // Define computed property to get current isFavourite value
+    const currentIsFavourite = computed(() => {
+      return store.getters.isFavorite(props.showdata.id)
+    })
 
     function redirectToSingleShow() {
       router.push({ path: `/show/${props.showdata?.id}` })
     }
 
     return {
-      redirectToSingleShow
+      redirectToSingleShow,
+      toggleFavorite,
+      currentIsFavourite
     }
   }
 })
@@ -27,6 +46,7 @@ export default defineComponent({
 
 <template>
   <div v-if="showdata">
+    {{ currentIsFavourite }}
     <div class="showContainer flex" @click="redirectToSingleShow">
       <div class="showImg flex flex-jc-c">
         <img class="showImg__pic" :src="showdata.image.medium" alt="" />
@@ -35,8 +55,15 @@ export default defineComponent({
             <i class="material-icons showImg__icon--star">star_rate</i>
             <span class="showImg__icon--value">{{ showdata.rating.average }}</span>
           </div>
-          <button class="showImg__icon">
-            <i class="material-icons showImg__icon--heart">favorite</i>
+          <button class="showImg__icon" @click.stop="toggleFavorite">
+            <i
+              :class="[
+                'material-icons',
+                'showImg__icon--heart',
+                currentIsFavourite ? 'isFavourite' : ''
+              ]"
+              >favorite</i
+            >
           </button>
         </div>
       </div>
@@ -96,6 +123,11 @@ export default defineComponent({
         &:hover {
           opacity: 0.6;
         }
+      }
+
+      .isFavourite {
+        color: red;
+        opacity: 1;
       }
     }
   }
