@@ -7,18 +7,21 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'Dashboard' }
   },
   {
     path: '/search',
     name: 'Search',
-    component: Search
+    component: Search,
+    meta: { title: 'Search' }
   },
   {
     path: '/show/:id',
     name: 'ShowDetail',
     component: ShowDetail,
-    props: true
+    props: true,
+    meta: { title: 'Show' }
   }
 ]
 const router = createRouter({

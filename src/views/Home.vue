@@ -39,8 +39,6 @@ export default defineComponent({
         const max = allShows.value.length - SHOW_COUNT
         const randomIndex = Math.floor(Math.random() * (max - 0) + 0)
         randomShows.value = allShows.value.slice(randomIndex, randomIndex + SHOW_COUNT)
-
-        console.log(updatedShows.value)
       } catch (error) {
         console.log(`Error: ${error}`)
       }

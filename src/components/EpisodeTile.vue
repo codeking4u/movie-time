@@ -10,9 +10,7 @@ export default defineComponent({
       type: Object as PropType<Episode>
     }
   },
-  setup(props) {
-    console.log(props.episodeDetails)
-  }
+  setup(props) {}
 })
 </script>
 

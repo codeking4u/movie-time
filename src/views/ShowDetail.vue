@@ -53,4 +53,8 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.sDetails {
+  margin: 25px 0;
+}
+</style>
