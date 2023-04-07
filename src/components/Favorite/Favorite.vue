@@ -1,15 +1,17 @@
 <template>
-  <div class="favorite">
+  <router-link :to="{ name: 'ShowDetail', params: { id } }" class="favorite flex flex-ai-c">
     <div class="favorite__img">
       <img :src="image.medium" alt="Show image" />
     </div>
     <div class="favDetails flex flex-jc-sb">
       <p class="favDetails__name">{{ name }}</p>
       <div class="favDetails__delete flex flex-jc-c flex-ai-c">
-        <button class="delete-icon" @click="removeItem(id)">X</button>
+        <button class="delete-icon" @click.prevent="() => removeItem(id)">
+          <i :class="'material-icons'">clear</i>
+        </button>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -44,17 +46,22 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .favorite {
-  display: flex;
-  align-items: center;
   margin-bottom: 10px;
-
+  max-width: 350px;
+  color: #000;
   &:hover {
+    background: #f4f4f4;
+
+    .favDetails__name {
+      text-decoration: underline;
+    }
     .delete-icon {
       visibility: visible;
     }
   }
   &__img {
     margin-right: 10px;
+
     img {
       width: 90px;
       height: 90px;
@@ -76,6 +83,7 @@ export default defineComponent({
     cursor: pointer;
     .delete-icon {
       visibility: hidden;
+      padding: 0px 4px;
       &:hover {
         color: #8f0404;
       }

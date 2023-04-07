@@ -82,6 +82,16 @@ export default defineComponent({
   overflow: hidden;
   margin-bottom: 1rem;
   font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.4s ease-out, box-shadow 0.2s ease-out;
+
+  &:hover {
+    box-shadow: -2px 2px 7px 0px rgb(11 11 11 / 50%);
+    transform: translateY(-2px);
+    .showDetails__title {
+      text-decoration: underline;
+    }
+  }
   .showImg {
     position: relative;
     align-items: flex-end;
@@ -122,7 +132,7 @@ export default defineComponent({
         opacity: 0.4;
 
         &:hover {
-          opacity: 0.6;
+          opacity: 0.8;
         }
       }
 
