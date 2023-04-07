@@ -65,8 +65,6 @@ export default {
           }
         })
       }
-      console.log('asd-' + JSON.stringify(route.matched))
-      console.log('breadcrumbs-' + JSON.stringify(breadcrumbs))
       return breadcrumbs
     }
 

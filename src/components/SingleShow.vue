@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 import type { PropType } from 'vue'
-import type { TvShow } from '@/types/TvShow'
+import type { TvShow, Favorite } from '@/types/TvShow'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
@@ -18,11 +18,13 @@ export default defineComponent({
     const store = useStore()
 
     function toggleFavorite() {
-      const showId = props.showdata.id
-      if (store.getters.isFavorite(showId)) {
-        store.commit('removeFromFavorites', showId)
+      const { id, name, image }: Favorite = props.showdata
+      const FavData: Favorite = { id, name, image }
+
+      if (store.getters.isFavorite(FavData.id)) {
+        store.commit('removeFromFavorites', FavData.id)
       } else {
-        store.commit('addToFavorites', showId)
+        store.commit('addToFavorites', FavData)
       }
     }
 
@@ -46,7 +48,6 @@ export default defineComponent({
 
 <template>
   <div v-if="showdata">
-    {{ currentIsFavourite }}
     <div class="showContainer flex" @click="redirectToSingleShow">
       <div class="showImg flex flex-jc-c">
         <img class="showImg__pic" :src="showdata.image.medium" alt="" />

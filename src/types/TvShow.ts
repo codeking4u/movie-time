@@ -89,3 +89,12 @@ export interface Episode {
     }
   }
 }
+
+export interface Favorite {
+  id: number
+  name: string
+  image: {
+    medium: string
+    original: string
+  }
+}

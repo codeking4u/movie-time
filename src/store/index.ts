@@ -1,10 +1,10 @@
 import type { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
-import type { TvShow } from '@/types/TvShow'
+import type { Favorite } from '@/types/TvShow'
 
 // Define a interface for the state
 interface State {
-  favorites: number[]
+  favorites: Favorite[]
 }
 
 // Define injection key for using store
@@ -16,14 +16,14 @@ export const store = createStore<State>({
   },
   mutations: {
     // Add a show to favorites list
-    addToFavorites(state, showId: number) {
-      if (!state.favorites.includes(showId)) {
-        state.favorites.push(showId)
+    addToFavorites(state, FavData: Favorite) {
+      if (!state.favorites.some((fav) => fav.id === FavData.id)) {
+        state.favorites.push(FavData)
       }
     },
     // Remove a show from favorites list
-    removeFromFavorites(state, showId: number) {
-      const index = state.favorites.indexOf(showId)
+    removeFromFavorites(state, id: Number) {
+      const index = state.favorites.findIndex((fav) => fav.id === id)
       if (index !== -1) {
         state.favorites.splice(index, 1)
       }
@@ -32,9 +32,12 @@ export const store = createStore<State>({
   getters: {
     // Check if a show is favorite
     isFavorite(state) {
-      return (showId: number) => {
-        return state.favorites.includes(showId)
+      return (favId: Number) => {
+        return state.favorites.some((fav) => fav.id === favId)
       }
+    },
+    getAllFavorites(state) {
+      return state.favorites
     }
   }
 })
