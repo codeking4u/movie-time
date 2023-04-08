@@ -1,14 +1,19 @@
 <template>
   <div class="favorite-container section">
     <h2>Favourites</h2>
-    <div class="favorite-list flex">
-      <Favorite
-        v-for="fav in allFavorites"
-        :key="fav.id"
-        :favorite="fav"
-        @delete="removeFavorite"
-      />
-    </div>
+    <template v-if="allFavorites.length">
+      <div class="favorite-list flex">
+        <Favorite
+          v-for="fav in allFavorites"
+          :key="fav.id"
+          :favorite="fav"
+          @delete="removeFavorite"
+        />
+      </div>
+    </template>
+    <template v-else>
+      <p>No favourites added yet. Click on <i class="material-icons">favorite</i> icon to add.</p>
+    </template>
   </div>
 </template>
 
