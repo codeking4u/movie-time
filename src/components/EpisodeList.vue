@@ -3,6 +3,8 @@ import { defineComponent, ref, computed, onMounted } from 'vue'
 import EpisodeTile from './EpisodeTile.vue'
 import type { Episode } from '@/types/TvShow'
 
+import { fetchEpisodes } from '@/services/ShowService'
+
 export default defineComponent({
   name: 'EpisodeList',
   props: {
@@ -20,13 +22,13 @@ export default defineComponent({
     const episodeData = ref<Episode[]>()
     const showdataLoaded = computed(() => !!episodeData.value)
 
-    const getShow = async () => {
-      const response = await fetch(`${API_LINK}/shows/${props.id}/episodes`)
-      episodeData.value = await response.json()
+    const getEpisodes = async () => {
+      const episodes = await fetchEpisodes(props.id)
+      episodeData.value = await episodes
     }
 
     onMounted(() => {
-      getShow()
+      getEpisodes()
     })
 
     return {

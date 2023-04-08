@@ -9,10 +9,10 @@
 import { defineComponent, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import Shows from '../components/Shows.vue'
+import { searchShowsAPI } from '@/services/ShowService'
 
 export default defineComponent({
   setup() {
-    const API_LINK = import.meta.env.VITE_API_LINK
     const NUMBER_OF_SEARCH_SHOWS = import.meta.env.VITE_NUMBER_OF_SHOWS_IN_SEARCH
 
     const route = useRoute()
@@ -21,8 +21,7 @@ export default defineComponent({
 
     const searchShow = async () => {
       searchQuery.value = route.query.q
-      const response = await fetch(`${API_LINK}/search/shows?q=${searchQuery.value}`)
-      const responseData = await response.json()
+      const responseData = await searchShowsAPI(searchQuery.value)
 
       searchResults.value = responseData.slice(0, NUMBER_OF_SEARCH_SHOWS).reduce((acc, curr) => {
         acc.push(curr.show)
