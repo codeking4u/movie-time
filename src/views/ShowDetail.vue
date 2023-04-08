@@ -18,10 +18,10 @@
 import { defineComponent, ref, computed, onMounted } from 'vue'
 import type { TvShow } from '@/types/TvShow'
 
-import SingleShow from '@/components/SingleShow.vue'
-import ShowInfo from '@/components/ShowInfo.vue'
-import InfoPanel from '@/components/InfoPanel.vue'
-import EpisodeList from '@/components/EpisodeList.vue'
+import SingleShow from '@/components/Shows/SingleShow.vue'
+import ShowInfo from '@/components/Shows/ShowInfo.vue'
+import InfoPanel from '@/components/common/InfoPanel.vue'
+import EpisodeList from '@/components/Episode/EpisodeList.vue'
 import { fetchSingleShow } from '@/services/ShowService'
 
 export default defineComponent({

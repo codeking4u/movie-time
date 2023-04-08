@@ -137,9 +137,7 @@ input[type='text'] {
 #app {
   max-width: 69.375rem;
   margin: 0 auto;
-  @include breakpoint-down(medium) {
-    padding: 0px 25px;
-  }
+  padding: 0px 25px;
 }
 
 .w-50 {

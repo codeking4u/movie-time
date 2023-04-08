@@ -8,7 +8,7 @@
 <script>
 import { defineComponent, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import Shows from '../components/Shows.vue'
+import Shows from '@/components/Shows/Shows.vue'
 import { searchShowsAPI } from '@/services/ShowService'
 
 export default defineComponent({

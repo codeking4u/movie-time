@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import Search from '../components/common/Search.vue'
-import Shows from '../components/Shows.vue'
+import Shows from '@/components/Shows/Shows.vue'
 import FavoriteList from '@/components/Favorite/FavoriteList.vue'
 
 import { fetchShows } from '../services/ShowService'
