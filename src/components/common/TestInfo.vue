@@ -1,6 +1,9 @@
 <template>
   <div class="testInfo">
-    <h3 class="testInfo__title">Test assignment</h3>
+    <div class="testInfo__header flex flex-jc-c">
+      <h3 class="testInfo__title">Test assignment</h3>
+      <img src="../../assets/images/test.png" alt="" />
+    </div>
     <p>
       Data provider: <a :href="DATA_PROVIDER">{{ DATA_PROVIDER }}</a>
     </p>
@@ -27,8 +30,17 @@ export default defineComponent({
 .testInfo {
   font-size: 1rem;
   background: #333;
-  color: #fff;
-  padding: 2rem;
+  color: #e5e5e5;
+  padding: 1.5rem;
+  border-radius: 5px;
+  &__header {
+    align-items: flex-start;
+    gap: 10px;
+
+    img {
+      width: 23px;
+    }
+  }
 
   &__title {
     font-size: 1.5rem;
@@ -39,6 +51,9 @@ export default defineComponent({
     &:hover {
       color: #a3a5f0;
     }
+  }
+  p {
+    font-size: 0.8rem;
   }
 }
 </style>

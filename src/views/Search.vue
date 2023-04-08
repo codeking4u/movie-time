@@ -1,5 +1,8 @@
 <template>
-  <Shows :updatedShows="searchResults"></Shows>
+  <Shows :updatedShows="searchResults" v-if="searchResults.length"></Shows>
+  <template v-else>
+    <p>No search results found.</p>
+  </template>
 </template>
 
 <script>

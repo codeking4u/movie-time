@@ -37,6 +37,6 @@ export default defineComponent({
 
 <style scoped>
 header {
-  padding: 25px 0;
+  margin: 40px 0;
 }
 </style>

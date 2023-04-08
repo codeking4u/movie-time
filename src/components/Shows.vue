@@ -20,7 +20,7 @@ export default defineComponent({
 
 <template>
   <div class="shows-container section">
-    <h2>
+    <h2 class="title">
       <slot name="title"></slot>
     </h2>
     <div class="shows">
