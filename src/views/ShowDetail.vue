@@ -53,9 +53,17 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped type="scss">
+<style lang="scss" scoped>
 .sDetails {
   margin: 25px 0;
+
+  @include breakpoint-down(medium) {
+    flex-direction: column;
+
+    &__tile,
+    &__info {
+      width: 100%;
+    }
+  }
 }
 </style>

@@ -34,5 +34,10 @@ export default defineComponent({
   padding: 1.5rem;
   line-height: 1.5rem;
   border-radius: 4px;
+  word-wrap: break-word;
+
+  @include breakpoint-down(medium) {
+    padding: 1rem;
+  }
 }
 </style>

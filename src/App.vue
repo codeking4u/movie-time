@@ -15,4 +15,4 @@ export default defineComponent({
   <router-view />
 </template>
 
-<style scoped type="scss"></style>
+<style scoped lang="scss"></style>

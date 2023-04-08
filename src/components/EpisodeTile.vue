@@ -73,5 +73,13 @@ h3 {
       line-height: 1rem;
     }
   }
+
+  @include breakpoint-down(small) {
+    flex-direction: column;
+    .episodeDetails {
+      margin-top: 1.5rem;
+      padding: 0;
+    }
+  }
 }
 </style>

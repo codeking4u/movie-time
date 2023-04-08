@@ -30,9 +30,16 @@ export default defineComponent({
 .testInfo {
   font-size: 1rem;
   background: $primary-color;
-  color: #e5e5e5;
+  color: $theme-white;
   padding: 1.5rem;
   border-radius: 5px;
+
+  @include breakpoint-down(medium) {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+    padding: 1rem;
+  }
+
   &__header {
     align-items: flex-start;
     gap: 10px;
