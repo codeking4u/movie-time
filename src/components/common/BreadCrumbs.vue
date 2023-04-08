@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .breadcrumbs {
   list-style: none;
   flex-wrap: wrap;

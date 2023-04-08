@@ -35,7 +35,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   margin: 40px 0;
 }
