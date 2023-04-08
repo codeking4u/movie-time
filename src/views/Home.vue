@@ -22,11 +22,12 @@ export default defineComponent({
     FavoriteList
   },
   setup() {
-    //const latestShows = ref<TvShow[]>([])
+    const COMING_SOON_COUNT = import.meta.env.VITE_NUMBER_OF_SHOWS_IN_COMING_SOON
+    const RANDOM_SHOW_COUNT = parseInt(import.meta.env.VITE_NUMBER_OF_SHOWS_IN_RANDOM)
+
     const allShows = ref([])
     const updatedShows = ref([])
     const randomShows = ref([])
-    const SHOW_COUNT = 3
 
     async function fetchTvShows() {
       try {
@@ -35,11 +36,14 @@ export default defineComponent({
 
         updatedShows.value = allShows.value
           .sort((a: TvShow, b: TvShow) => b.updated - a.updated)
-          .slice(0, SHOW_COUNT)
+          .slice(0, COMING_SOON_COUNT)
 
-        const max = allShows.value.length - SHOW_COUNT
-        const randomIndex = Math.floor(Math.random() * (max - 0) + 0)
-        randomShows.value = allShows.value.slice(randomIndex, randomIndex + SHOW_COUNT)
+        /* picking a random index and fetch shows from there  */
+        let max = allShows.value.length - RANDOM_SHOW_COUNT
+        if (max < 0) max = 0
+
+        const randomIndex = Math.floor(Math.random() * max)
+        randomShows.value = allShows.value.slice(randomIndex, randomIndex + RANDOM_SHOW_COUNT)
       } catch (error) {
         console.log(`Error: ${error}`)
       }

@@ -20,10 +20,11 @@ export default defineComponent({
   name: 'Header',
   components: { TestInfo, BreadCrumbs, Search },
   setup() {
+    const PAGES_TO_EXCLUDE_SEARCH = import.meta.env.VITE_PAGES_TO_EXCLUDE_SEARCH_BAR.split(',')
     const route = useRoute()
 
     const shouldShowSearchBar = computed(() => {
-      const excludeSearch = ['ShowDetail']
+      const excludeSearch = PAGES_TO_EXCLUDE_SEARCH
       const routeName = route.name?.toString()
       if (!routeName) return false
       return !excludeSearch.includes(routeName)

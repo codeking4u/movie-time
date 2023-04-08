@@ -33,11 +33,12 @@ export default defineComponent({
   },
   components: { SingleShow, ShowInfo, InfoPanel, EpisodeList },
   setup(props) {
+    const API_LINK = import.meta.env.VITE_API_LINK
     const showdata = ref<TvShow>()
     const showdataLoaded = computed(() => !!showdata.value)
 
     const getShow = async () => {
-      const response = await fetch(`https://api.tvmaze.com/shows/${props.id}`)
+      const response = await fetch(`${API_LINK}/shows/${props.id}`)
       showdata.value = await response.json()
     }
 

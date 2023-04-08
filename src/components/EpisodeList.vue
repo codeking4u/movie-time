@@ -15,11 +15,13 @@ export default defineComponent({
     EpisodeTile
   },
   setup(props) {
+    const API_LINK = import.meta.env.VITE_API_LINK
+
     const episodeData = ref<Episode[]>()
     const showdataLoaded = computed(() => !!episodeData.value)
 
     const getShow = async () => {
-      const response = await fetch(`https://api.tvmaze.com/shows/${props.id}/episodes`)
+      const response = await fetch(`${API_LINK}/shows/${props.id}/episodes`)
       episodeData.value = await response.json()
     }
 
