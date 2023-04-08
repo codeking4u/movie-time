@@ -50,7 +50,7 @@ export default defineComponent({
   <div v-if="showdata">
     <div class="showContainer flex" @click="redirectToSingleShow">
       <div class="showImg flex flex-jc-c">
-        <img class="showImg__pic" :src="showdata.image.medium" alt="" />
+        <img class="showImg__pic" :src="showdata.image?.medium" alt="" />
         <div class="showImg__icons flex flex-jc-sb">
           <div class="showImg__icon flex flex-jc-c flex-ai-c">
             <i class="material-icons showImg__icon--star">star_rate</i>
@@ -86,7 +86,7 @@ export default defineComponent({
   transition: transform 0.4s ease-out, box-shadow 0.2s ease-out;
 
   &:hover {
-    box-shadow: -2px 2px 7px 0px rgb(11 11 11 / 50%);
+    box-shadow: -1px 1px 14px -6px rgba(11, 11, 11, 0.5);
     transform: translateY(-2px);
     .showDetails__title {
       text-decoration: underline;

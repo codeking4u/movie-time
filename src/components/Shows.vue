@@ -19,7 +19,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="shows-container">
+  <div class="shows-container section">
     <h2>
       <slot name="title"></slot>
     </h2>
@@ -30,9 +30,6 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
-.shows-container {
-  margin: 50px 0;
-}
 .shows {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

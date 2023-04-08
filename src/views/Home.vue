@@ -1,5 +1,4 @@
 <template>
-  <Search />
   <Shows :updatedShows="updatedShows"
     ><template v-slot:title> New Episodes Coming Soon In </template></Shows
   >

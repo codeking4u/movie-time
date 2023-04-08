@@ -1,5 +1,5 @@
 <template>
-  <div class="favorite-container">
+  <div class="favorite-container section">
     <h2>Favourites</h2>
     <div class="favorite-list flex">
       <Favorite

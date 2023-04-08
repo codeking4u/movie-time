@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{ name: 'ShowDetail', params: { id } }" class="favorite flex flex-ai-c">
     <div class="favorite__img">
-      <img :src="image.medium" alt="Show image" />
+      <img :src="image?.medium" alt="Show image" />
     </div>
     <div class="favDetails flex flex-jc-sb">
       <p class="favDetails__name">{{ name }}</p>
