@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{ name: 'ShowDetail', params: { id } }" class="favorite flex flex-ai-c">
     <div class="favorite__img">
-      <img :src="image?.medium" alt="Show image" />
+      <img :src="image?.medium || image?.original || SHOW_DEFAULT_PIC" alt="Show image" />
     </div>
     <div class="favDetails flex flex-jc-sb">
       <p class="favDetails__name">{{ name }}</p>
@@ -34,11 +34,13 @@ export default defineComponent({
   },
   setup(props) {
     const { id, name, image }: Favorite = props.favorite
+    const SHOW_DEFAULT_PIC = import.meta.env.VITE_SHOW_DEFAULT_PIC
 
     return {
       id,
       name,
-      image
+      image,
+      SHOW_DEFAULT_PIC
     }
   }
 })

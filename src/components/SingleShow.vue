@@ -42,10 +42,13 @@ export default defineComponent({
       router.push({ path: `/show/${props.showdata?.id}` })
     }
 
+    const SHOW_DEFAULT_PIC = import.meta.env.VITE_SHOW_DEFAULT_PIC
+
     return {
       redirectToSingleShow,
       toggleFavorite,
-      currentIsFavourite
+      currentIsFavourite,
+      SHOW_DEFAULT_PIC
     }
   }
 })
@@ -59,7 +62,11 @@ export default defineComponent({
       @click="() => !disableClick && redirectToSingleShow()"
     >
       <div class="showImg flex flex-jc-c">
-        <img class="showImg__pic" :src="showdata.image?.medium" alt="" />
+        <img
+          class="showImg__pic"
+          :src="showdata.image?.medium || showdata.image?.original || SHOW_DEFAULT_PIC"
+          alt=""
+        />
         <div class="showImg__icons flex flex-jc-sb">
           <div class="showImg__icon flex flex-jc-c flex-ai-c">
             <i class="material-icons showImg__icon--star">star_rate</i>

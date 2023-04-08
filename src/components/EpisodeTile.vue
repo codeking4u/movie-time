@@ -10,7 +10,13 @@ export default defineComponent({
       type: Object as PropType<Episode>
     }
   },
-  setup(props) {}
+  setup(props) {
+    const DEFAULT_PIC = import.meta.env.VITE_EPISODE_DEFAULT_PIC
+
+    return {
+      DEFAULT_PIC
+    }
+  }
 })
 </script>
 
@@ -19,7 +25,11 @@ export default defineComponent({
     <h3>Episode {{ episodeDetails.number }} : {{ episodeDetails.name }}</h3>
     <div class="episodeTile flex">
       <div class="episodeImg flex flex-jc-c">
-        <img class="episodeImg__pic" :src="episodeDetails.image?.medium" alt="" />
+        <img
+          class="episodeImg__pic"
+          :src="episodeDetails.image?.medium || episodeDetails.image?.original || DEFAULT_PIC"
+          alt=""
+        />
       </div>
       <div class="episodeDetails flex flex-d-col flex-jc-sb">
         <p class="episodeDetails__text" v-html="episodeDetails.summary"></p>
