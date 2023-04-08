@@ -29,7 +29,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .testInfo {
   font-size: 1rem;
-  background: #333;
+  background: $primary-color;
   color: #e5e5e5;
   padding: 1.5rem;
   border-radius: 5px;
@@ -44,6 +44,9 @@ export default defineComponent({
 
   &__title {
     font-size: 1.5rem;
+    @include breakpoint-down(medium) {
+      font-size: 1.2rem;
+    }
   }
 
   a {

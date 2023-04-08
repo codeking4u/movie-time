@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="flex flex-jc-sb">
+    <div class="header-top flex flex-jc-sb">
       <BreadCrumbs />
       <TestInfo />
     </div>
@@ -38,5 +38,11 @@ export default defineComponent({
 <style scoped lang="scss">
 header {
   margin: 40px 0;
+  .header-top {
+    @include breakpoint-down(small) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
 }
 </style>

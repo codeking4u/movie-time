@@ -84,6 +84,10 @@ export default defineComponent({
     .delete-icon {
       visibility: hidden;
       padding: 0px 4px;
+      @include breakpoint-down(small) {
+        visibility: visible;
+      }
+
       &:hover {
         color: #8f0404;
       }
