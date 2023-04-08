@@ -44,6 +44,7 @@ export default defineComponent({
     <div class="episodes">
       <h2>Episodes</h2>
       <EpisodeTile v-for="episode in episodeData" :key="episode.id" :episodeDetails="episode" />
+      <div v-if="showdataLoaded"><p>No Episodes Found!</p></div>
     </div>
   </div>
 </template>
