@@ -2,7 +2,7 @@
   <div v-if="showdataLoaded">
     <div class="sDetails flex">
       <div class="sDetails__tile w-50">
-        <SingleShow :showdata="showdata" />
+        <SingleShow :showdata="showdata" :disableClick="true" />
       </div>
       <div class="sDetails__info w-50">
         <ShowInfo :showdata="showdata" />

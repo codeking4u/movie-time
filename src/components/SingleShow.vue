@@ -11,6 +11,10 @@ export default defineComponent({
     showdata: {
       type: Object as PropType<TvShow>,
       default: () => ({})
+    },
+    disableClick: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
@@ -34,6 +38,7 @@ export default defineComponent({
     })
 
     function redirectToSingleShow() {
+      console.log('clicj')
       router.push({ path: `/show/${props.showdata?.id}` })
     }
 
@@ -48,7 +53,11 @@ export default defineComponent({
 
 <template>
   <div v-if="showdata">
-    <div class="showContainer flex" @click="redirectToSingleShow">
+    <div
+      class="showContainer flex"
+      :class="{ enabled: !disableClick }"
+      @click="() => !disableClick && redirectToSingleShow()"
+    >
       <div class="showImg flex flex-jc-c">
         <img class="showImg__pic" :src="showdata.image?.medium" alt="" />
         <div class="showImg__icons flex flex-jc-sb">
@@ -82,16 +91,19 @@ export default defineComponent({
   overflow: hidden;
   margin-bottom: 1rem;
   font-size: 0.8rem;
-  cursor: pointer;
   transition: transform 0.4s ease-out, box-shadow 0.2s ease-out;
 
-  &:hover {
-    box-shadow: -1px 1px 14px -6px rgba(11, 11, 11, 0.5);
-    transform: translateY(-2px);
-    .showDetails__title {
-      text-decoration: underline;
+  &.enabled {
+    cursor: pointer;
+    &:hover {
+      box-shadow: -1px 1px 14px -6px rgba(11, 11, 11, 0.5);
+      transform: translateY(-2px);
+      .showDetails__title {
+        text-decoration: underline;
+      }
     }
   }
+
   .showImg {
     position: relative;
     align-items: flex-end;
