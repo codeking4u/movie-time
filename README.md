@@ -49,8 +49,12 @@ npm run dev
 
 3. For testing
 
-### `npm run test:unit`
+```sh
+npm run test:unit
+```
 
 4. For building
 
-### `npm run build`
+```sh
+npm run build`
+```
