@@ -56,5 +56,7 @@ npm run test:unit
 4. For building
 
 ```sh
-npm run build`
+npm run build
 ```
+
+Hosted on Netlify CI/CD - https://show-time-v1.netlify.app

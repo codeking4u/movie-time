@@ -39,7 +39,6 @@ export default defineComponent({
     })
 
     function redirectToSingleShow() {
-      console.log('clicj')
       router.push({ path: `/show/${props.showdata?.id}` })
     }
 

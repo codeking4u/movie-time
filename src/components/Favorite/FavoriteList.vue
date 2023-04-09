@@ -29,7 +29,6 @@ export default {
     const allFavorites = computed(() => store.getters.getAllFavorites)
 
     const removeFavorite = (index: Number) => {
-      console.log('delete')
       store.commit('removeFromFavorites', index)
     }
 
