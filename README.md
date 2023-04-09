@@ -1,4 +1,4 @@
-# SHOW TIME 🎬
+# [SHOW TIME](https://show-time-v1.netlify.app/)  🎬
 
 Web Application to display TV Shows and their details information like Episodes, timings, ratings etc. Users can search the TV Show and also mark them as their favourite.
 
