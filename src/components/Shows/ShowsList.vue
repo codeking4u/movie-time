@@ -5,7 +5,7 @@ import SingleShow from './SingleShow.vue'
 import type { TvShow } from '@/types/TvShow'
 
 export default defineComponent({
-  name: 'Shows',
+  name: 'ShowsList',
   props: {
     updatedShows: {
       type: Array as PropType<TvShow[]>,

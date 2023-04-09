@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Favorite from '@/components/Favorite/Favorite.vue'
+import FavoriteShow from '@/components/Favorite/FavoriteShow.vue'
 import router from '@/router'
 
 describe('Favorite.vue', () => {
   it('renders correctly', () => {
-    const wrapper = mount(Favorite, {
+    const wrapper = mount(FavoriteShow, {
       props: {
         favorite: {
           id: 1,

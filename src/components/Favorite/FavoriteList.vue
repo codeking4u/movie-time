@@ -3,7 +3,7 @@
     <h2>Favourites</h2>
     <template v-if="allFavorites.length">
       <div class="favorite-list flex">
-        <Favorite
+        <FavoriteShow
           v-for="fav in allFavorites"
           :key="fav.id"
           :favorite="fav"
@@ -20,10 +20,10 @@
 <script lang="ts">
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import Favorite from './Favorite.vue'
+import FavoriteShow from './FavoriteShow.vue'
 
 export default {
-  components: { Favorite },
+  components: { FavoriteShow },
   setup() {
     const store = useStore()
     const allFavorites = computed(() => store.getters.getAllFavorites)

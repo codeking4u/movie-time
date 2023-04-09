@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import Header from '@/components/common/Header.vue'
+import AppHeader from '@/components/common/AppHeader.vue'
 
-describe('Header', () => {
+describe('AppHeader', () => {
   it('renders correctly', () => {
-    const wrapper = shallowMount(Header, {
+    const wrapper = shallowMount(AppHeader, {
       global: {
         stubs: ['BreadCrumbs', 'TestInfo', 'Search'],
         provide: {

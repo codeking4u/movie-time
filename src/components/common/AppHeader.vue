@@ -17,7 +17,7 @@ import BreadCrumbs from './BreadCrumbs.vue'
 import Search from './Search.vue'
 
 export default defineComponent({
-  name: 'Header',
+  name: 'AppHeader',
   components: { TestInfo, BreadCrumbs, Search },
   setup() {
     const PAGES_TO_EXCLUDE_SEARCH = import.meta.env.VITE_PAGES_TO_EXCLUDE_SEARCH_BAR.split(',')

@@ -1,15 +1,17 @@
 <template>
-  <Shows :updatedShows="updatedShows"
-    ><template v-slot:title> New Episodes Coming Soon In </template></Shows
+  <ShowsList :updatedShows="updatedShows"
+    ><template v-slot:title> New Episodes Coming Soon In </template></ShowsList
   >
-  <Shows :updatedShows="randomShows"><template v-slot:title> Random 3 Films </template></Shows>
+  <ShowsList :updatedShows="randomShows"
+    ><template v-slot:title> Random 3 Films </template></ShowsList
+  >
   <FavoriteList />
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import Search from '../components/common/Search.vue'
-import Shows from '@/components/Shows/Shows.vue'
+import ShowsList from '@/components/Shows/ShowsList.vue'
 import FavoriteList from '@/components/Favorite/FavoriteList.vue'
 
 import { fetchShows } from '../services/ShowService'
@@ -18,7 +20,7 @@ import type { TvShow } from '../types/TvShow'
 export default defineComponent({
   components: {
     Search,
-    Shows,
+    ShowsList,
     FavoriteList
   },
   setup() {

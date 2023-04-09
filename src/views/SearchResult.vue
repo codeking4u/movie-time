@@ -1,5 +1,5 @@
 <template>
-  <Shows :updatedShows="searchResults" v-if="searchResults.length"></Shows>
+  <ShowsList :updatedShows="searchResults" v-if="searchResults.length"></ShowsList>
   <template v-else>
     <p>No search results found.</p>
   </template>
@@ -8,7 +8,7 @@
 <script>
 import { defineComponent, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import Shows from '@/components/Shows/Shows.vue'
+import ShowsList from '@/components/Shows/ShowsList.vue'
 import { searchShowsAPI } from '@/services/ShowService'
 
 export default defineComponent({
@@ -42,7 +42,7 @@ export default defineComponent({
     return { searchQuery, searchResults }
   },
   components: {
-    Shows
+    ShowsList
   }
 })
 </script>

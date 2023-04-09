@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import Shows from '@/components/Shows/Shows.vue'
+import ShowsList from '@/components/Shows/ShowsList.vue'
 
-describe('Shows', () => {
+describe('ShowsList', () => {
   it('renders correctly with props', () => {
     const updatedShows = [
       {
@@ -117,7 +117,7 @@ describe('Shows', () => {
         }
       }
     ]
-    const wrapper = shallowMount(Shows, {
+    const wrapper = shallowMount(ShowsList, {
       props: {
         updatedShows
       }
