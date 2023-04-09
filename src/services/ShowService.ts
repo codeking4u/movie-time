@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 const API_LINK = import.meta.env.VITE_API_LINK
 
 export const fetchShows = async () => {
