@@ -1,46 +1,50 @@
-# show-time
+# SHOW TIME 🎬
 
-This template should help get you started developing with Vue 3 in Vite.
+Web Application to display TV Shows and their details information like Episodes, timings, ratings etc. Users can search the TV Show and also mark them as their favourite.
 
-## Recommended IDE Setup
+### Preview
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#### Desktop view
 
-## Type Support for `.vue` Imports in TS
+![A preview image](./src/assets/images/desktop.png)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+#### Tablet view
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+![A preview image](./src/assets/images/tablet.png)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+#### Mobile view
 
-## Customize configuration
+![A preview image](./src/assets/images/mobile.png)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Technologies used:
 
-## Project Setup
+1. **Vue 3** with TypeScript for UI.
+2. **Vuex** for State Management.
+3. **Vitest** - a lightweight and fast test runner for Vue applications.
+4. **Vite** - Build tool.
+5. **Vue Router** - To manage routes and navigations.
+6. **DOMPurify** - For sanitizing HTML.
+7. **ESLint** - Linting utility.
+8. **Axios** - Handle HTTP requests.
+
+## Instructions to run the Application:
+
+1. Install all dependencies
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+2. Start the Application
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+3. For testing
 
-```sh
-npm run build
-```
+### `npm run test:unit`
 
-### Lint with [ESLint](https://eslint.org/)
+4. For building
 
-```sh
-npm run lint
-```
+### `npm run build`
