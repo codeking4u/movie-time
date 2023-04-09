@@ -6,7 +6,7 @@ describe('AppHeader', () => {
   it('renders correctly', () => {
     const wrapper = shallowMount(AppHeader, {
       global: {
-        stubs: ['BreadCrumbs', 'TestInfo', 'Search'],
+        stubs: ['BreadCrumbs', 'TestInfo', 'SearchBar'],
         provide: {
           route: { name: 'test-page' },
           $config: { VITE_PAGES_TO_EXCLUDE_SEARCH_BAR: 'showDetails' }
@@ -17,6 +17,6 @@ describe('AppHeader', () => {
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.findComponent({ name: 'BreadCrumbs' }).exists()).toBe(true)
     expect(wrapper.findComponent({ name: 'TestInfo' }).exists()).toBe(true)
-    expect(wrapper.findComponent({ name: 'Search' }).exists()).toBe(false)
+    expect(wrapper.findComponent({ name: 'SearchBar' }).exists()).toBe(false)
   })
 })

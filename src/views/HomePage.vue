@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import Search from '../components/common/Search.vue'
 import ShowsList from '@/components/Shows/ShowsList.vue'
 import FavoriteList from '@/components/Favorite/FavoriteList.vue'
 
@@ -19,7 +18,6 @@ import type { TvShow } from '../types/TvShow'
 
 export default defineComponent({
   components: {
-    Search,
     ShowsList,
     FavoriteList
   },
