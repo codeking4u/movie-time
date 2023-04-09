@@ -18,6 +18,7 @@
 import { defineComponent, ref, computed, onMounted } from 'vue'
 import type { TvShow } from '@/types/TvShow'
 import { useStore } from 'vuex'
+import { onBeforeRouteLeave } from 'vue-router'
 
 import SingleShow from '@/components/Shows/SingleShow.vue'
 import ShowInfo from '@/components/Shows/ShowInfo.vue'
@@ -47,6 +48,12 @@ export default defineComponent({
 
     onMounted(() => {
       getShow()
+    })
+
+    onBeforeRouteLeave((to, from, next) => {
+      // clear showdetails data
+      store.commit('addToShowDetails', '')
+      next()
     })
 
     return {
