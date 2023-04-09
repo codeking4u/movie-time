@@ -1,18 +1,14 @@
 import type { InjectionKey } from 'vue'
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
-import type { Favorite } from '@/types/TvShow'
-
-// Define a interface for the state
-interface State {
-  favorites: Favorite[]
-}
+import type { Favorite, State, TvShow } from '@/types/TvShow'
 
 // Define injection key for using store
 export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
   state: {
-    favorites: []
+    favorites: [],
+    showDetail: null
   },
   mutations: {
     // Add a show to favorites list
@@ -27,6 +23,10 @@ export const store = createStore<State>({
       if (index !== -1) {
         state.favorites.splice(index, 1)
       }
+    },
+
+    addToShowDetails(state, showDetail: TvShow) {
+      state.showDetail = showDetail
     }
   },
   getters: {
@@ -38,6 +38,9 @@ export const store = createStore<State>({
     },
     getAllFavorites(state) {
       return state.favorites
+    },
+    getShowDetails(state) {
+      return state.showDetail
     }
   }
 })

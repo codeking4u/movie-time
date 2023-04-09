@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted } from 'vue'
 import type { TvShow } from '@/types/TvShow'
+import { useStore } from 'vuex'
 
 import SingleShow from '@/components/Shows/SingleShow.vue'
 import ShowInfo from '@/components/Shows/ShowInfo.vue'
@@ -34,12 +35,14 @@ export default defineComponent({
   },
   components: { SingleShow, ShowInfo, InfoPanel, EpisodeList },
   setup(props) {
+    const store = useStore()
     const showdata = ref<TvShow>()
     const showdataLoaded = computed(() => !!showdata.value)
 
     const getShow = async () => {
       const response = await fetchSingleShow(props.id)
       showdata.value = response
+      store.commit('addToShowDetails', showdata.value)
     }
 
     onMounted(() => {

@@ -9,26 +9,30 @@
           <router-link :to="breadcrumb.route">{{ breadcrumb.label }}</router-link>
         </template>
       </li>
+      <li v-if="showNameFlag == 'Show'">
+        <span class="active">{{ showInfo.value?.name }}</span>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { ref, watchEffect, watch, nextTick } from 'vue'
+import { ref, watchEffect, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 
 export default {
   name: 'BreadCrumbs',
   setup() {
     const breadcrumbs = ref([])
+    let showInfo = ref('')
+    let showNameFlag = ref('')
     const route = useRoute()
+    const store = useStore()
+    showInfo.value = computed(() => store.getters.getShowDetails)
+
     watchEffect(() => {
       breadcrumbs.value = getBreadcrumbs(route)
-    })
-
-    // Update breadcrumbs when route changes
-    watch(route, (to, from) => {
-      breadcrumbs.value = getBreadcrumbs(to)
     })
 
     function getBreadcrumbs(route) {
@@ -36,8 +40,6 @@ export default {
 
       if (route.matched && route.matched.length > 0) {
         const matched = route.matched
-        const showName = route.matched.instances?.showdata.name
-
         const fullpath = route.fullPath
 
         if (fullpath !== '/') {
@@ -47,16 +49,10 @@ export default {
             active: false
           })
         }
-
-        const instance = route.matched.instances?.default
-        nextTick(() => {
-          if (instance && instance.showdata.name) {
-            console.log('check- ' + instance.showdata.name)
-          }
-        })
-
+        showNameFlag.value = ''
         matched.forEach((match) => {
           if (match.meta.title) {
+            if (match.meta.title === 'Show') showNameFlag.value = 'Show'
             breadcrumbs.push({
               label: match.meta.title,
               route: fullpath,
@@ -69,7 +65,9 @@ export default {
     }
 
     return {
-      breadcrumbs
+      breadcrumbs,
+      showInfo,
+      showNameFlag
     }
   }
 }

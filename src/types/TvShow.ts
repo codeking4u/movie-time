@@ -98,3 +98,8 @@ export interface Favorite {
     original: string
   }
 }
+
+export interface State {
+  favorites: Favorite[]
+  showDetail: TvShow | null
+}
