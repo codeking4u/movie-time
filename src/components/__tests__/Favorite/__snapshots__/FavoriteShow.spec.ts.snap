@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Favorite.vue > renders correctly 1`] = `
+"<a data-v-cd289b13=\\"\\" href=\\"/show/1\\" class=\\"favorite flex flex-ai-c\\">
+  <div data-v-cd289b13=\\"\\" class=\\"favorite__img\\"><img data-v-cd289b13=\\"\\" src=\\"https://example.com/medium.jpg\\" alt=\\"Show image\\"></div>
+  <div data-v-cd289b13=\\"\\" class=\\"favDetails flex flex-jc-sb\\">
+    <p data-v-cd289b13=\\"\\" class=\\"favDetails__name\\">Example Show</p>
+    <div data-v-cd289b13=\\"\\" class=\\"favDetails__delete flex flex-jc-c flex-ai-c\\"><button data-v-cd289b13=\\"\\" class=\\"delete-icon\\"><i data-v-cd289b13=\\"\\" class=\\"material-icons\\">clear</i></button></div>
+  </div>
+</a>"
+`;
