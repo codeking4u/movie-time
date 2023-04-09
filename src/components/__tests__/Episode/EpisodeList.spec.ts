@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import EpisodeList from '../Episode/EpisodeList.vue'
+import EpisodeList from '../../Episode/EpisodeList.vue'
 
 describe('HelloWorld', () => {
   it('renders properly', () => {
