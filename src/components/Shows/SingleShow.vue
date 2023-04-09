@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 import type { TvShow, Favorite } from '@/types/TvShow'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import DOMPurify from 'dompurify'
 
 export default defineComponent({
   name: 'SingleShow',
@@ -43,12 +44,14 @@ export default defineComponent({
     }
 
     const SHOW_DEFAULT_PIC = import.meta.env.VITE_SHOW_DEFAULT_PIC
+    const sanitizedSummary = DOMPurify.sanitize(props.showdata?.summary || '')
 
     return {
       redirectToSingleShow,
       toggleFavorite,
       currentIsFavourite,
-      SHOW_DEFAULT_PIC
+      SHOW_DEFAULT_PIC,
+      sanitizedSummary
     }
   }
 })
@@ -86,7 +89,7 @@ export default defineComponent({
       </div>
       <div class="showDetails">
         <h2 class="showDetails__title">{{ showdata.name }}</h2>
-        <p class="showDetails__text" v-html="showdata.summary"></p>
+        <p class="showDetails__text" v-html="sanitizedSummary"></p>
       </div>
     </div>
   </div>

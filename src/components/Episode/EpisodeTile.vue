@@ -1,6 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
+import DOMPurify from 'dompurify'
+
 import type { Episode } from '@/types/TvShow'
 
 export default defineComponent({
@@ -12,9 +14,11 @@ export default defineComponent({
   },
   setup(props) {
     const DEFAULT_PIC = import.meta.env.VITE_EPISODE_DEFAULT_PIC
+    const sanitizedSummary = DOMPurify.sanitize(props.episodeDetails?.summary || '')
 
     return {
-      DEFAULT_PIC
+      DEFAULT_PIC,
+      sanitizedSummary
     }
   }
 })
@@ -32,7 +36,7 @@ export default defineComponent({
         />
       </div>
       <div class="episodeDetails flex flex-d-col flex-jc-sb">
-        <p class="episodeDetails__text" v-html="episodeDetails.summary"></p>
+        <p class="episodeDetails__text" v-html="sanitizedSummary"></p>
         <div class="episodeDetails__other">
           <p>Season {{ episodeDetails.season }} / Number {{ episodeDetails.number }}</p>
           <p>Date: {{ episodeDetails.airdate }}</p>
