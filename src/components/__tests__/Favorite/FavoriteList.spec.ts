@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createStore } from 'vuex'
 import FavoriteList from '@/components/Favorite/FavoriteList.vue'
+import router from '@/router'
 
 describe('FavoriteList.vue', () => {
   it('renders correctly', () => {
@@ -13,7 +14,7 @@ describe('FavoriteList.vue', () => {
 
     const wrapper = mount(FavoriteList, {
       global: {
-        plugins: [mockStore]
+        plugins: [mockStore, router]
       }
     })
 

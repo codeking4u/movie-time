@@ -25,7 +25,7 @@ export default defineComponent({
 
     const shouldShowSearchBar = computed(() => {
       const excludeSearch = PAGES_TO_EXCLUDE_SEARCH
-      const routeName = route.name?.toString()
+      const routeName = route?.name?.toString()
       if (!routeName) return false
       return !excludeSearch.includes(routeName)
     })

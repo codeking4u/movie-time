@@ -3,14 +3,12 @@
 exports[`FavoriteList.vue > renders correctly 1`] = `
 "<div data-v-1eff25f7=\\"\\" class=\\"favorite-container section\\">
   <h2 data-v-1eff25f7=\\"\\">Favourites</h2>
-  <div data-v-1eff25f7=\\"\\" class=\\"favorite-list flex\\">
-    <router-link data-v-73416b1a=\\"\\" data-v-1eff25f7=\\"\\" to=\\"[object Object]\\" class=\\"favorite flex flex-ai-c\\">
+  <div data-v-1eff25f7=\\"\\" class=\\"favorite-list flex\\"><a data-v-73416b1a=\\"\\" data-v-1eff25f7=\\"\\" href=\\"/show/1\\" class=\\"favorite flex flex-ai-c\\">
       <div data-v-73416b1a=\\"\\" class=\\"favorite__img\\"><img data-v-73416b1a=\\"\\" src=\\"/src/assets/images/show-no-image.png\\" alt=\\"Show image\\"></div>
       <div data-v-73416b1a=\\"\\" class=\\"favDetails flex flex-jc-sb\\">
         <p data-v-73416b1a=\\"\\" class=\\"favDetails__name\\">Favorite 1</p>
         <div data-v-73416b1a=\\"\\" class=\\"favDetails__delete flex flex-jc-c flex-ai-c\\"><button data-v-73416b1a=\\"\\" class=\\"delete-icon\\"><i data-v-73416b1a=\\"\\" class=\\"material-icons\\">clear</i></button></div>
       </div>
-    </router-link>
-  </div>
+    </a></div>
 </div>"
 `;

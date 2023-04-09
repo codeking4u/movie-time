@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Favorite from '@/components/Favorite/Favorite.vue'
+import router from '@/router'
 
 describe('Favorite.vue', () => {
   it('renders correctly', () => {
@@ -14,8 +15,12 @@ describe('Favorite.vue', () => {
             original: 'https://example.com/original.jpg'
           }
         }
+      },
+      global: {
+        plugins: [router]
       }
     })
+
     expect(wrapper.html()).toMatchSnapshot()
   })
 })
