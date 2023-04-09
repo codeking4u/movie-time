@@ -8,13 +8,19 @@ Web Application to display TV Shows and their details information like Episodes,
 
 ![A preview image](./src/assets/images/desktop.png)
 
+---
+
 #### Tablet view
 
 ![A preview image](./src/assets/images/tablet.png)
 
+---
+
 #### Mobile view
 
 ![A preview image](./src/assets/images/mobile.png)
+
+---
 
 ## Technologies used:
 
