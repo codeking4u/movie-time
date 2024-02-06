@@ -2,7 +2,7 @@
   <header>
     <div class="header-top flex flex-jc-sb">
       <BreadCrumbs />
-      <TestInfo />
+      <!-- <TestInfo /> -->
     </div>
 
     <SearchBar v-if="shouldShowSearchBar" />
@@ -12,13 +12,13 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import TestInfo from './TestInfo.vue'
+/* import TestInfo from './TestInfo.vue' */
 import BreadCrumbs from './BreadCrumbs.vue'
 import SearchBar from './SearchBar.vue'
 
 export default defineComponent({
   name: 'AppHeader',
-  components: { TestInfo, BreadCrumbs, SearchBar },
+  components: { /* TestInfo, */ BreadCrumbs, SearchBar },
   setup() {
     const PAGES_TO_EXCLUDE_SEARCH = import.meta.env.VITE_PAGES_TO_EXCLUDE_SEARCH_BAR.split(',')
     const route = useRoute()
